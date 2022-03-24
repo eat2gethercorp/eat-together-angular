@@ -1,0 +1,44 @@
+<nav
+  class="navbar is-transparent"
+  role="navigation"
+  aria-label="main navigation"
+>
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <h1>EatTogether</h1>
+    </a>
+
+    <a
+      (click)="toggleNavbar()"
+      #navBurger
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" #navMenu class="navbar-menu">
+    <div class="navbar-start"></div>
+
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <i class="fa-solid fa-user"></i> Alvaro Rueda
+        </a>
+
+        <div class="navbar-dropdown is-boxed">
+          <a class="navbar-item"> Información de la cuenta </a>
+          <a class="navbar-item"> Mis pedidos </a>
+          <a class="navbar-item"> Mis direcciones de envío </a>
+          <a class="navbar-item"> Mis métodos de pago </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
