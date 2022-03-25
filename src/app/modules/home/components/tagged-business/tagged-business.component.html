@@ -1,0 +1,12 @@
+<section>
+  <p class="as-text-left is-size-5">Las mejores pizzas</p>
+  <div class="columns mt-2">
+    <div class="column" *ngFor="let business of taggedBusinessMock">
+      <eat-together-business-card
+        [name]="business.name"
+        [imgSrc]="business.imgSrc"
+        [rating]="business.rating"
+      ></eat-together-business-card>
+    </div>
+  </div>
+</section>
