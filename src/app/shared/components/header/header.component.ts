@@ -14,10 +14,7 @@ export class HeaderComponent implements OnInit {
   public isLogged: boolean = false;
   public isAdmin: boolean = false;
 
-  public register: string = 'Registrate';
   public login: string = 'Iniciar sesión';
-
-  public activateRoute: string = '';
 
   constructor(
     private _router: Router,
@@ -43,14 +40,17 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateToHome() {
+    this.login = 'Iniciar sesión';
     this._router.navigateByUrl('home');
   }
 
   navigateToLogin() {
+    this.login = 'Registrarse';
     this._router.navigateByUrl('users/login');
   }
 
   navigateToRegister() {
+    this.login = 'Iniciar sesión';
     this._router.navigateByUrl('users/register');
   }
 

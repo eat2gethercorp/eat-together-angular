@@ -2,23 +2,40 @@
   <div class="columns is-mobile is-centered">
     <div class="column is-half">
       <p class="is-size-3">Inicia sesión</p>
-      <div class="field mt-3">
-        <label class="label">Username</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Username" />
+      <form [formGroup]="form">
+        <div *ngFor="let control of loginRegister" class="field">
+          <label class="label">{{ control.name }}</label>
+          <div class="control">
+            <input
+              formControlName="{{ control.cod }}"
+              name="{{ control.cod }}"
+              class="input"
+              [ngClass]="
+                submmited && form.controls[control.cod]?.errors
+                  ? 'is-danger'
+                  : ''
+              "
+              [type]="
+                control.cod === 'pass' || control.cod === 'passConf'
+                  ? 'password'
+                  : 'text'
+              "
+              placeholder="{{ control.name }}"
+            />
+          </div>
+          <p
+            *ngIf="submmited && form.controls[control.cod].errors?.['required']"
+            class="help is-danger"
+          >
+            El campo es requerido
+          </p>
         </div>
-      </div>
-      <div class="field">
-        <label class="label">Contraseña</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Contraseña" />
+        <div class="control mt-5">
+          <button class="button is-dark is-medium" (click)="login()">
+            Inicia sesión
+          </button>
         </div>
-      </div>
-      <div class="control mt-5">
-        <button class="button is-dark is-medium" (click)="login()">
-          Inicia sesión
-        </button>
-      </div>
+      </form>
     </div>
   </div>
 </section>

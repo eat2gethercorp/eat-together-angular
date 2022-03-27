@@ -2,19 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'eat-together-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  selector: 'eat-together-business-manager',
+  templateUrl: './business-manager.component.html',
+  styleUrls: ['./business-manager.component.scss'],
 })
-export class RegisterComponent implements OnInit {
-  loginRegister = [
+export class BusinessManagerComponent implements OnInit {
+  negocios: string[] = ['create', 'show', 'edit'];
+
+  businessRegister = [
     {
-      cod: 'username',
-      name: 'Nombre de usuario',
+      cod: 'name',
+      name: 'Nombre de restaurante',
     },
     {
-      cod: 'email',
-      name: 'Correo Electrónico',
+      cod: 'street',
+      name: 'Dirección del restaurante',
     },
     {
       cod: 'pass',
@@ -22,7 +24,7 @@ export class RegisterComponent implements OnInit {
     },
     {
       cod: 'passConf',
-      name: 'Confirmar Contraseña',
+      name: 'Confirmar contraseña',
     },
   ];
 
@@ -34,21 +36,22 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.addValidations();
+    console.log(this.form.controls['name'].errors);
   }
 
   createForm() {
-    for (let control of this.loginRegister) {
+    for (let control of this.businessRegister) {
       this.form.addControl(control.cod, new FormControl(''));
     }
   }
 
   addValidations() {
-    for (let control of this.loginRegister) {
+    for (let control of this.businessRegister) {
       this.form.controls[control.cod].setValidators([Validators.required]);
     }
   }
 
-  register() {
+  onSubmit() {
     this.submmited = true;
   }
 }
