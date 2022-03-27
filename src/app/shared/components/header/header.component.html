@@ -27,7 +27,18 @@
     <div class="navbar-start"></div>
 
     <div class="navbar-end">
-      <a *ngIf="!isLogged" class="navbar-item" (click)="navigateToLogin()">
+      <a
+        *ngIf="!isLogged && login === 'Iniciar sesión'"
+        class="navbar-item"
+        (click)="navigateToLogin()"
+      >
+        {{ login }}
+      </a>
+      <a
+        *ngIf="!isLogged && login === 'Registrarse'"
+        class="navbar-item"
+        (click)="navigateToRegister()"
+      >
         {{ login }}
       </a>
       <div *ngIf="isLogged" class="navbar-item has-dropdown is-hoverable">
