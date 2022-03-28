@@ -7,6 +7,7 @@ import { TaggedBusinessComponent } from './components/tagged-business/tagged-bus
 import { PopularBusinessComponent } from './components/popular-business/popular-business.component';
 import { SharedModule } from '../../shared/shared.module';
 import { CommonModule } from '@angular/common';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { CommonModule } from '@angular/common';
     TaggedBusinessComponent,
     PopularBusinessComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, SharedModule],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, GooglePlaceModule],
   providers: [],
   bootstrap: [],
 })
