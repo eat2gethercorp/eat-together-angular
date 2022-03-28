@@ -5,7 +5,11 @@
         <input
           class="input is-rounded"
           type="text"
-          placeholder="Busca tu domicilio..."
+          placeholder="Busca tu domicilio"
+          ngx-google-places-autocomplete
+          [options]="options"
+          #placesRef="ngx-places"
+          (onAddressChange)="handleAddressChange($event)"
         />
         <span class="icon is-small is-left">
           <i class="fa-solid fa-magnifying-glass"></i>
