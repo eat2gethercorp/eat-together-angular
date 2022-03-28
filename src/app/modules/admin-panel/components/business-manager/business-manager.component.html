@@ -1,9 +1,15 @@
+<div class="tabs is-centered">
+  <ul>
+    <li class="is-active"><a>Crear Negocio</a></li>
+    <li><a class="disabled">Negocios</a></li>
+    <li><a class="disabled">Editar Negocio</a></li>
+  </ul>
+</div>
 <section class="mt-4">
   <div class="columns is-mobile is-centered">
     <div class="column is-half">
-      <p class="is-size-3">Regístrate en Eat Together</p>
       <form [formGroup]="form">
-        <div *ngFor="let control of loginRegister" class="field">
+        <div *ngFor="let control of businessRegister" class="field">
           <label class="label">{{ control.name }}</label>
           <div class="control">
             <input
@@ -30,9 +36,10 @@
             El campo es requerido
           </p>
         </div>
+
         <div class="control mt-5">
-          <button class="button is-dark is-medium" (click)="register()">
-            Crear Cuenta
+          <button (click)="onSubmit()" class="button is-dark is-medium">
+            Registrar Restaurante
           </button>
         </div>
       </form>

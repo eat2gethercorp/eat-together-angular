@@ -14,4 +14,8 @@ export class MenuAdminPanelComponent implements OnInit {
   navigateToAdminPanel() {
     this._router.navigateByUrl('admin-panel/main-info');
   }
+
+  navigateToBusinessManager() {
+    this._router.navigateByUrl('admin-panel/business-manager');
+  }
 }
